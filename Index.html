@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upload Receipt</title>
+  <title>Upload ID</title>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     body {
@@ -45,12 +45,12 @@
 </head>
 <body>
   <div class="container">
-    <h2>Upload Your Receipt</h2>
+    <h2>Upload Your ID</h2>
     <form id="receiptForm">
       <input type="hidden" id="full_name" />
       <input type="hidden" id="email" />
       <input type="file" id="receipt" accept="image/*,.pdf" required />
-      <button type="submit">Submit Receipt</button>
+      <button type="submit">Submit ID</button>
       <p id="status"></p>
     </form>
   </div>
@@ -71,12 +71,12 @@
       const file = document.getElementById("receipt").files[0];
 
       if (!file) {
-        status.textContent = "Please upload your receipt.";
+        status.textContent = "Please upload your ID.";
         status.style.color = "red";
         return;
       }
 
-      status.textContent = "Uploading receipt...";
+      status.textContent = "Uploading ID...";
       status.style.color = "#555";
 
       const formData = new FormData();
@@ -100,7 +100,7 @@
         return emailjs.send("service_96jc01n", "template_uikbtgh", templateParams);
       })
       .then(() => {
-        status.textContent = `Thank you, ${fullName}! Your payment receipt has been received and is currently under review....`;
+        status.textContent = `Thank you, ${fullName}! Your ID has been received and is currently under review....`;
         status.style.color = "green";
         document.getElementById("receiptForm").reset();
       })
